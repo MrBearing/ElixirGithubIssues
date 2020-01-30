@@ -1,6 +1,6 @@
 # Issues
 
-**TODO: Add description**
+プログラミングElixirの13章のサンプルを自分で実装した結果です
 
 ## Installation
 

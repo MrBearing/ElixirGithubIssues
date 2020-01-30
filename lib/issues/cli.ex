@@ -1,11 +1,11 @@
 
 defmodule Issues.CLI do
     @default_count 4
+    import Issues.TableFormatter, only: [ print_table_for_column: 2 ]
 
     @moduledoc """
     コマンドライン引数のパースをして、特定の関数に引数を受け渡す
     """
-
     def run(argv) do
         argv
         |> parse_args
@@ -43,7 +43,7 @@ defmodule Issues.CLI do
         |>convert_to_list_of_maps
         |>sort_into_ascending_order
         |> Enum.take(count)
-#        |> print_table_for_column({"number","created_at","title"})
+        |> print_table_for_column({"number","created_at","title"})
     end
 
     def decode_response({:ok, body}), do: body
@@ -63,12 +63,5 @@ defmodule Issues.CLI do
       Enum.sort list_of_issues,
         fn i1 , i2 -> i1["created_at"] <= i2["created_at"] end
     end
-
-    def print_table_for_column(list , header) do
-
-    end
-
-
-
 
 end
