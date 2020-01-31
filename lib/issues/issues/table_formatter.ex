@@ -26,11 +26,11 @@ defmodule Issues.TableFormatter do
   end
 
   def make_format(column_width) do
-    Enum.map_join(column_width, "|" , fn width -> "~-j#{width}s" end ) <> "~n"
+    Enum.map_join(column_width, "|" , fn width -> "~-#{width}s" end ) <> "~n"
   end
 
   def separator(column_with) do
-    Enum.map_join(column_with,"-+-",fn width -> List.duplicate("-",width) end)
+    Enum.map_join(column_with,"+",fn width -> List.duplicate("-",width) end)
   end
   def puts_in_columns(columns_data , format) do
     columns_data

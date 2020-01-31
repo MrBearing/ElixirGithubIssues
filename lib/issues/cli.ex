@@ -6,7 +6,7 @@ defmodule Issues.CLI do
     @moduledoc """
     コマンドライン引数のパースをして、特定の関数に引数を受け渡す
     """
-    def run(argv) do
+    def main(argv) do
         argv
         |> parse_args
         |> process
@@ -39,11 +39,12 @@ defmodule Issues.CLI do
 
     def process({user, project, count }) do
         Issues.GithubIssues.fetch(user, project)
-        |>decode_response
-        |>convert_to_list_of_maps
-        |>sort_into_ascending_order
+        |> decode_response
+        |> convert_to_list_of_maps
+        |> sort_into_ascending_order
         |> Enum.take(count)
-        |> print_table_for_column({"number","created_at","title"})
+#        |> IO.inspect
+        |> print_table_for_column(["number","created_at","title"])
     end
 
     def decode_response({:ok, body}), do: body
