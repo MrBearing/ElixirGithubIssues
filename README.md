@@ -24,7 +24,18 @@ be found at [https://hexdocs.pm/issues](https://hexdocs.pm/issues).
 escript issues elixir-lang elixir 3
 
 
-## 
-
+## 自分メモ 
 ```iex -S mix```　でmixのプロジェクト全体を再コンパイル
 
+
+コメントで書いたExampleのテスト
+```shell
+mix test test/doc_test.exs
+```
+
+ドキュメントの生成
+```shell
+mix docs
+```
+
+##
